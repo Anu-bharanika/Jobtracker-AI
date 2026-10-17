@@ -1,0 +1,6 @@
+{
+  "name": "Jobtracker AI",
+  "description": "Smart, automated job application tracking, semantic resume-to-job matching, email classification, and GitHub/LinkedIn sync.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.011em;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', 'Manrope', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}

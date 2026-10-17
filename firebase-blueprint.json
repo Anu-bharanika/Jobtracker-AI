@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User account information",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "location": { "type": "string" },
+        "education": { "type": "string" },
+        "headline": { "type": "string" },
+        "targetRole": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "email"]
+    },
+    "JobApplication": {
+      "title": "JobApplication",
+      "description": "Tracked job application document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "company": { "type": "string" },
+        "title": { "type": "string" },
+        "location": { "type": "string" },
+        "workMode": { "type": "string" },
+        "salaryRange": { "type": "string" },
+        "url": { "type": "string" },
+        "status": { "type": "string" },
+        "matchScore": { "type": "number" },
+        "requiredSkills": { "type": "array" },
+        "matchedSkills": { "type": "array" },
+        "missingSkills": { "type": "array" },
+        "description": { "type": "string" },
+        "notes": { "type": "string" },
+        "source": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "company", "title", "status"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Gemini chatbot conversation message",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "role": { "type": "string" },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "model": { "type": "string" }
+      },
+      "required": ["id", "userId", "role", "content"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document"
+    },
+    "/users/{userId}/applications/{applicationId}": {
+      "schema": "JobApplication",
+      "description": "User's job applications"
+    },
+    "/users/{userId}/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Chatbot message thread"
+    }
+  }
+}
