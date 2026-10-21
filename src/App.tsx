@@ -16,7 +16,7 @@ import { SyncIntegrationsModal } from './components/SyncIntegrationsModal';
 import { ResumeIngestionModal } from './components/ResumeIngestionModal';
 import { NotificationCenter } from './components/NotificationCenter';
 import { AnalyticsView } from './components/AnalyticsView';
-import { GeminiChatbot } from './components/GeminiChatbot';
+import { CareerChatbot } from './components/CareerChatbot';
 import { UserProfileModal } from './components/UserProfileModal';
 import { ProfilePage } from './components/ProfilePage';
 import { WelcomeModal } from './components/WelcomeModal';
@@ -387,7 +387,12 @@ export default function App() {
   const currentUserEmail = currentUser?.email || candidate.email;
 
   return (
-    <div className="min-h-screen bg-slate-50 flex font-['Manrope',sans-serif] text-slate-900">
+    <div className="relative min-h-screen bg-gradient-to-br from-[#f8f9fe] via-[#f1f3fb] to-[#faf5ff] flex font-['Manrope',sans-serif] text-slate-900 overflow-x-hidden">
+      {/* Eye-catching ambient background gradient glows */}
+      <div className="fixed top-0 right-1/4 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="fixed bottom-10 left-1/3 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="fixed top-1/2 right-10 w-80 h-80 bg-pink-300/15 rounded-full blur-3xl pointer-events-none -z-10" />
+
       {/* 6-Page Navigation Sidebar */}
       <Sidebar
         currentPage={currentPage}
@@ -425,7 +430,7 @@ export default function App() {
 
         {/* Cloud Sync Status Banner */}
         {authBanner && (
-          <div className="bg-blue-600 text-white text-xs py-2 px-6 text-center font-medium shadow-xs">
+          <div className="bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 text-white text-xs py-2 px-6 text-center font-bold shadow-xs">
             {authBanner}
           </div>
         )}
@@ -443,9 +448,9 @@ export default function App() {
             />
           )}
 
-          {/* Page 2: Gemini AI Career Coach */}
+          {/* Page 2: Free Career & Interview Coach */}
           {currentPage === 'chat' && (
-            <GeminiChatbot
+            <CareerChatbot
               currentUser={currentUser}
               applications={applications}
               candidateProfile={candidate}

@@ -27,6 +27,7 @@ import {
   Trash2
 } from 'lucide-react';
 import { User } from 'firebase/auth';
+import { CandidateProfile, JobApplication } from '../types/job';
 import { extractSkillsFromText, DS_AI_TAXONOMY, performMatchAnalysis } from '../utils/embeddingEngine';
 
 interface ProfilePageProps {
@@ -179,7 +180,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
   };
 
   const handleRemoveEducation = (index: number) => {
-    const updated = educationList.filter((_, i) => i !== index);
+    const updated = educationList.filter((_: any, i: number) => i !== index);
     setEducationList(updated);
     onUpdateCandidateProfile({
       ...candidateProfile,
@@ -187,26 +188,26 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
     });
   };
 
-  const totalSkillsCount = candidateProfile.skills.reduce((acc, cat) => acc + cat.items.length, 0);
+  const totalSkillsCount = candidateProfile.skills.reduce((acc: number, cat: any) => acc + cat.items.length, 0);
   const activeInterviews = applications.filter(a => a.status === 'interviewing').length;
   const activeOffers = applications.filter(a => a.status === 'offered').length;
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Page Header */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      {/* Page Header with colorful gradient hero */}
+      <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-indigo-100 p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <div className="relative">
             {currentUser?.photoURL ? (
               <img
                 src={currentUser.photoURL}
                 alt={candidateProfile.name}
-                className="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-xs"
+                className="w-16 h-16 rounded-full object-cover border-2 border-indigo-500 shadow-md shadow-indigo-500/20"
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold text-2xl flex items-center justify-center font-display shadow-xs">
-                {candidateProfile.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-violet-600 via-indigo-600 to-pink-500 text-white font-bold text-2xl flex items-center justify-center font-display shadow-md shadow-indigo-500/20">
+                {candidateProfile.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
               </div>
             )}
             {currentUser && (
@@ -716,7 +717,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {candidateProfile.skills.map((category) => (
+              {candidateProfile.skills.map((category: CandidateProfile['skills'][number]) => (
                 <div
                   key={category.category}
                   className="p-4 bg-slate-50/70 rounded-xl border border-slate-200/80 flex flex-col gap-2.5"
@@ -728,7 +729,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
-                    {category.items.map((skill) => (
+                    {category.items.map((skill: string) => (
                       <span
                         key={skill}
                         className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-700 shadow-2xs font-medium"
@@ -767,7 +768,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {educationList.map((edu, idx) => (
+            {educationList.map((edu: CandidateProfile['education'][number], idx: number) => (
               <div
                 key={idx}
                 className="p-5 bg-slate-50/70 rounded-xl border border-slate-200 relative group flex flex-col justify-between gap-3"

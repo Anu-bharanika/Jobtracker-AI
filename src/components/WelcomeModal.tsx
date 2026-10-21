@@ -61,7 +61,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
             Your Smart Job Search Command Center
           </h2>
           <p className="text-xs text-blue-100 mt-1.5 max-w-xl leading-relaxed">
-            An intelligent workspace designed for job seekers to ingest job postings, analyze resume-to-job semantic fit, simulate technical interviews with Gemini, and manage follow-ups with automated alerts.
+            An intelligent workspace designed for job seekers to ingest job postings, analyze resume-to-job semantic fit, simulate technical interviews with a free career coach, and manage follow-ups with automated alerts.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
           {/* Main Features Grid */}
           <div>
             <h3 className="text-xs font-bold text-slate-900 uppercase font-mono tracking-wider mb-3">
-              Main Capabilities & Features
+              Main Capabilities & Features (100% Free)
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -103,9 +103,9 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
                   <Bot className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-xs">Gemini AI Coach</h4>
+                  <h4 className="font-bold text-slate-900 text-xs">Free Career AI Coach</h4>
                   <p className="text-[11px] text-slate-500 mt-0.5 leading-relaxed">
-                    Multi-turn mock interview coach, Google XYZ bullet-point re-writer, and compensation negotiation strategist.
+                    Multi-turn mock interview coach, Google XYZ bullet-point re-writer, and compensation negotiation strategist with zero fees.
                   </p>
                 </div>
               </div>
@@ -161,9 +161,9 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({
                   3
                 </span>
                 <div>
-                  <span className="font-bold">Prepare with Gemini AI:</span>
+                  <span className="font-bold">Prepare with Free Career Coach:</span>
                   <span className="text-blue-800 ml-1">
-                    Switch to the <strong>Gemini AI Coach</strong> tab to conduct a mock interview or generate tailored bullet points that bridge identified skill gaps.
+                    Switch to the <strong>Career AI Coach</strong> tab to conduct a mock interview or generate tailored bullet points that bridge identified skill gaps.
                   </span>
                 </div>
               </div>
